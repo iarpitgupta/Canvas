@@ -1,13 +1,26 @@
-import java.util.Scanner;
+package main.java;
 
-import static constants.CanvasConstants.*;
+import static main.java.constants.CanvasConstants.*;
 
 public class Canvas {
 
+    private static Canvas instance;
     private int height, width;
     private int[][] canvasPixels;
 
-    protected void printCanvas() {
+    private Canvas() {
+    }
+
+    public static Canvas getInstance() {
+        synchronized (Canvas.class) {
+            if (instance == null) {
+                instance = new Canvas();
+            }
+        }
+        return instance;
+    }
+
+    public void printCanvas() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 printPixel(canvasPixels[y][x]);

@@ -1,4 +1,4 @@
-package exceptions;
+package main.java.exceptions;
 
 public class InvalidParametersException extends Exception {
     public InvalidParametersException(String message) {
