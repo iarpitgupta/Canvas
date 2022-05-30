@@ -2,8 +2,12 @@ package main.java.command;
 
 import main.java.exceptions.InvalidParametersException;
 
-import static main.java.constants.CanvasConstants.INVALID_PARAMETERS;
+import static main.java.constants.CanvasConstants.*;
 
+/**
+ * Quit class is responsible for validating input
+ * and exit the application safely.
+ */
 public class Quit implements Command {
 
     String[] commandParameters;
@@ -15,8 +19,8 @@ public class Quit implements Command {
     @Override
     public void execute() throws InvalidParametersException {
         if (validateParameters(commandParameters)) {
-            System.out.println("Bye");
-            System.exit(0);
+            System.out.println(EXIT_MESSAGE);
+            System.exit(EXIT_STATUS);
         }
     }
 

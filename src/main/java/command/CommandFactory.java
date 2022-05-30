@@ -8,6 +8,10 @@ import static main.java.constants.CanvasConstants.INVALID_COMMAND;
 import static main.java.constants.CanvasConstants.NO_COMMAND_FOUND;
 import static main.java.utils.CanvasUtil.splitCommand;
 
+/**
+ * CommandFactory is responsible for deciding which command is provided
+ * and return its respective command class object.
+ */
 public class CommandFactory {
 
     public static Command getCommand(String command) throws CommandNotFoundException, InvalidCommandException {
@@ -24,6 +28,8 @@ public class CommandFactory {
                     return new Rectangle(Canvas.getInstance(), commandArray);
                 case "q":
                     return new Quit(commandArray);
+                case "b":
+                    return new BucketFill(Canvas.getInstance(), commandArray);
                 default:
                     throw new InvalidCommandException(INVALID_COMMAND);
             }
